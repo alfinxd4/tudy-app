@@ -18,6 +18,6 @@ This app allows you to add, edit, and delete tasks. With a clean and easy-to-use
 
 ## References
 
-- [Dokumentasi Tailwind CSS](https://tailwindcss.com/docs)
-- [Dokumentasi Jquery](https://api.jquery.com/)
-- [Dokumentasi Font Awesome](https://docs.fontawesome.com/)
+- [Tailwind CSS Documentation](https://tailwindcss.com/docs)
+- [Jquery Documentation](https://api.jquery.com/)
+- [Font Awesome Documentation](https://docs.fontawesome.com/)
