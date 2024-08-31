@@ -7,7 +7,7 @@ Tudy is a simple and effective todo list and task manager app which helps you ma
 This app allows you to add, edit, and delete tasks. With a clean and easy-to-use interface, this app is designed to help you stay organized and productive. Key features include task category management, status filtering, and local data storage. This app can also be used offline.
 
 ## Usage
-- **Live Demo:** [View Application on GitHub Pages](https://username.github.io/tudy-app/)
+- **Live Demo:** [View Application on GitHub Pages](https://alfinxd4.github.io/tudy-app/)
 
 ## Contact
 
