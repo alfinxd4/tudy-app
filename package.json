@@ -8,8 +8,8 @@
     "build:tailwind": "npx tailwindcss -i ./src/css/main.css -o ./dist/css/app.css",
     "dev:tailwind": "npx tailwindcss -i ./src/css/main.css -o ./dist/css/app.css --watch",
  
-    "build:webpack": "webpack",
-    "dev:webpack": "webpack --watch",
+    "dev:webpack": "webpack --mode development --watch",
+    "build:webpack": "webpack --mode production",
  
     "dev" : "npm-run-all --parallel dev:webpack dev:tailwind",
     "prod" : "npm-run-all --parallel build:webpack build:tailwind"
