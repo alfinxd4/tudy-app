@@ -1,0 +1,33 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+   <meta charset="UTF-8">
+   <meta name="viewport" content="width=device-width, initial-scale=1.0">
+   <title>Tudy App</title>
+   <link rel="stylesheet" href="css/app.css">
+   <script src="https://code.jquery.com/jquery-3.7.1.js" integrity="sha256-eKhayi8LEQwp4NKxN+CfCh+3qOVUtJn3QNZ0TciWLP4=" crossorigin="anonymous"></script>
+</head>
+<body class="bg-slate-50 relative h-screen">
+   <main class="absolute top-1/2 left-1/2 transform -translate-x-1/2 -translate-y-1/2 w-56">
+     <!-- image-splash -->
+     <img src="assets/images/icon-splash.png" alt="">
+     <!-- title -->
+     <p class="font-bold text-xl text-center text-gray-900">Get Organized Your Life</p>
+     <!-- subtitle -->
+     <p class="font-medium text-center mt-4 text-gray-500 text-sm">Tudy is a simple and effective todo list and task manager app which helps you manage time.</p>
+     <!-- form input to set username -->
+     <form class="mt-5">
+       <div class="mb-5">
+         <input type="text" id="input-username"
+                class="border border-orange-500 text-gray-900 text-sm rounded-lg block w-full p-2.5 
+                       focus:ring-blue-500 focus:border-blue-500" placeholder="Enter Your Name" autocomplete="off" required>
+       </div>
+       <button type="submit" id="btn-input-username" class="py-3 w-full bg-sky-400 rounded-lg font-medium text-white">
+         Get Started
+       </button>
+     </form>
+   </main>
+ <script defer src="js/app.bundle.js"></script></body>
+
+</html>
