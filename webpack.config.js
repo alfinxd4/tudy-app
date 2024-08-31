@@ -2,53 +2,53 @@ const path = require("path");
 const HtmlWebpackPlugin = require("html-webpack-plugin");
 const glob = require("glob");
 
-// Temukan semua file HTML di folder src
-const htmlFiles = glob.sync("./src/**/*.html");
+const htmlFiles = glob.sync("./src/**/*.html"); // find all .html in src folder
 
-// Log file HTML yang ditemukan
-console.log("HTML Files Found:", htmlFiles);
+console.log("HTML Files Found:", htmlFiles); // found .html log files
 
-// Buat instance HtmlWebpackPlugin untuk setiap file HTML
+// create an instance of HtmlWebpackPlugin for each .html file
 const htmlPlugins = htmlFiles.map(
   (file) =>
     new HtmlWebpackPlugin({
-      inject: "body", // memastikan script di-load di akhir body
-      template: file, // File HTML sebagai template
-      filename: path.relative("./src", file), // Output di folder dist dengan nama file yang sama
+      inject: "body", // ensure the script is loaded at the end of the body
+      template: file, // File .html as template
+      filename: path.relative("./src", file), // output in dist folder with same file name
     }),
 );
 
 module.exports = {
-  mode: "production",
+  mode: "production", // webpack  mode build  
   entry: {
-    app: "./src/js/app.js",
+    app: "./src/js/app.js", // entry point input .js
   },
   output: {
-    path: path.resolve(__dirname, "dist"),
-    filename: "js/[name].bundle.js",
- 
-    assetModuleFilename: 'assets/images/[name][ext]',
+    path: path.resolve(__dirname, "dist"), // entry output .js (dist/js)
+    filename: "js/[name].bundle.js",   
+  //  
+    assetModuleFilename: 'assets/images/[name][ext]', // entry output .img (dist/assets)
   },
   plugins: [
-    ...htmlPlugins, // Menyertakan semua HtmlWebpackPlugin instances
+    ...htmlPlugins, // HtmlWebpackPlugin instances
   ],
   module: {
+    // rules style
     rules: [
       {
         test: /\.css$/,
         use: [
           "style-loader",
           "css-loader",
-          "postcss-loader", // Menggunakan postcss-loader untuk Tailwind
+          "postcss-loader", 
         ],
       },
-     // Rule untuk gambar
+     // rules images
      {
-      test: /\.(png|jpg|jpeg|gif|svg)$/i,
-      type: 'asset/resource',  // Menggunakan asset/resource untuk build gambar
+      test: /\.(png|jpg|jpeg|gif|svg)$/i, // type of img
+      type: 'asset/resource',  // use asset/resource for build image
     },
     ],
   },
+  // config webpack-dev-server
   devServer: {
     client: {
       overlay: {
