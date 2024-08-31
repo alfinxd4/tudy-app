@@ -1,4 +1,4 @@
-# Tudy Apps
+# Tudy App
 
 Tudy is a simple and effective todo list and task manager app which helps you manage time.
 
