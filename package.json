@@ -3,7 +3,17 @@
   "version": "1.0.0",
   "main": "src/js/app.js",
   "scripts": {
-    "test": "echo \"Error: no test specified\" && exit 1"
+    "test": "echo \"Error: no test specified\" && exit 1",
+
+    "build:tailwind": "npx tailwindcss -i ./src/css/main.css -o ./dist/css/app.css",
+    "dev:tailwind": "npx tailwindcss -i ./src/css/main.css -o ./dist/css/app.css --watch",
+ 
+    "build:webpack": "webpack",
+    "dev:webpack": "webpack --watch",
+ 
+    "dev" : "npm-run-all --parallel dev:webpack dev:tailwind",
+    "prod" : "npm-run-all --parallel build:webpack build:tailwind"
+   
   },
   "repository": {
     "type": "git",
@@ -30,5 +40,8 @@
     "webpack": "^5.94.0",
     "webpack-cli": "^5.1.4",
     "webpack-dev-server": "^5.0.4"
+  },
+  "dependencies": {
+    "webpack.config.js": "^0.0.0"
   }
 }
