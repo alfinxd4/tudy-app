@@ -11,8 +11,9 @@ This app allows you to add, edit, and delete tasks. With a clean and easy-to-use
 
 ## Contact
 
-Nama: Alfiansyah Cahyo Wicaksono (https://github.com/alfinxd4)
-Email: alfinxd4@example.com
+- **Name:** Alfiansyah Cahyo Wicaksono
+- **Github:** [My Github Account](https://github.com/alfinxd4)
+- **Email:** alfinxd4@gmail.com
 
 
 ## References
