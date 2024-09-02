@@ -113,6 +113,30 @@ $(document).ready(function () {
     element.text(taskArray.length); // Tampilkan jumlah elemen dalam array
   };
 
+  const updateTotalTaskCount = () => {
+    // Ambil jumlah task dari setiap kategori
+    let taskWorkCount = JSON.parse(localStorage.getItem("taskWork")).length;
+    let taskStudyCount = JSON.parse(localStorage.getItem("taskStudy")).length;
+    let taskSportCount = JSON.parse(localStorage.getItem("taskSport")).length;
+    let taskFunCount = JSON.parse(localStorage.getItem("taskFun")).length;
+    let taskFamilyCount = JSON.parse(localStorage.getItem("taskFamily")).length;
+    let taskOtherCount = JSON.parse(localStorage.getItem("taskOther")).length;
+  
+    // Jumlahkan semua task
+    let totalTaskCount =
+      taskWorkCount +
+      taskStudyCount +
+      taskSportCount +
+      taskFunCount +
+      taskFamilyCount +
+      taskOtherCount;
+  
+    // Tampilkan total task di elemen dengan id #total-all-task
+    $("#total-all-task").text(totalTaskCount);
+  };
+  
+  // Panggil fungsi untuk mengupdate total task
+  updateTotalTaskCount();
 
   // create unique id
   const createId = () => {
@@ -159,11 +183,6 @@ $(document).ready(function () {
      localStorage.setItem(`task${taskCategory}`, JSON.stringify(task));
     }
   };
-
-  $("#btn-submit-add-task").on("click", function () {
-    addTaskWork();
-  });
-
     // Update dom count of task
     updateTaskCount("taskWork", $("#task-work"));
     updateTaskCount("taskStudy", $("#task-study"));
@@ -171,5 +190,11 @@ $(document).ready(function () {
     updateTaskCount("taskFun", $("#task-fun"));
     updateTaskCount("taskFamily", $("#task-family"));
     updateTaskCount("taskOther", $("#task-other"));
-  
+
+  $("#btn-submit-add-task").on("click", function () {
+    addTaskWork();
+    updateTotalTaskCount();
+  });
+
+ 
 });
