@@ -13,9 +13,9 @@
 
 </head>
 
-<body class="bg-slate-50 relative overflow-x-hidden">
+<body class="bg-slate-100 relative overflow-x-hidden">
     <!-- yellow circle background -->
-    <div class="absolute -top-[8em] left-1/2 -translate-x-1/2 size-[32rem] bg-yellow-300 rounded-full -z-10"></div>
+    <div class="absolute -top-[8em] left-1/2 -translate-x-1/2 size-[32rem] bg-amber-300 rounded-full -z-10"></div>
      <main class="max-w-64 mx-auto pt-6 pb-20 relative">
         <!-- profile-info -->
         <div class="flex items-center justify-between ">
@@ -128,7 +128,7 @@
         </div>
     </main>
     <!-- menu -->
-    <div class="bg-slate-50 fixed bottom-0 w-full" >
+    <div class="bg-slate-100 fixed bottom-0 w-full" >
         <!-- menu list -->
         <div class="max-w-64 h-20 mx-auto flex items-center justify-around ">
             <!-- todo-menu -->
@@ -139,7 +139,7 @@
             <!-- add-task-menu -->
             <button type="button" data-modal-target="add-task-modal" data-modal-toggle="add-task-modal"
                 class="mx-auto text-center cursor-pointer relative -top-7">
-                <div class="  bg-yellow-300  size-16 rounded-full  flex items-center justify-center  ">
+                <div class="  bg-teal-400  size-16 rounded-full  flex items-center justify-center  ">
                     <i class="fa-solid fa-plus text-4xl text-white"></i>
                 </div>
             </button>
@@ -179,8 +179,8 @@
                         <label for="" class="block text-sm font-medium text-gray-900 dark:text-white mb-4">
                             <p class="font-bold my-2">New Task</p>
                             <input type="text" id="input-new-task"
-                                class="text-sm border-0 border-b-2 border-gray-400 w-full py-1.5 px-0
-                                focus:border-blue-500 focus:ring-0"
+                                class="text-sm border-0 border-b-2 w-full py-1.5 px-0
+                                focus:border-amber-400 focus:ring-0 focus:outline-none" 
                                 autocomplete="off" placeholder="Meeting : Company Profile" required >
                         </label>
                         <!-- choose category -->
@@ -188,71 +188,97 @@
                             <!-- work category -->
                             <div>
                                 <input type="radio" id="work-ctg" name="category" value="Work" class="category hidden peer" required />
-                                <label for="work-ctg" class="inline-flex items-center justify-between w-full p-2 text-gray-500 bg-red-100 border border-gray-200 rounded-lg cursor-pointer
-                                 dark:hover:text-gray-300 dark:border-gray-700 dark:peer-checked:text-blue-500 peer-checked:border-blue-600 peer-checked:text-blue-600
-                                  hover:text-gray-600 hover:bg-gray-100 dark:text-gray-400 dark:bg-gray-800 dark:hover:bg-gray-700">                           
+                                <label for="work-ctg" class="inline-flex items-center justify-between w-full p-2 rounded-lg cursor-pointer 
+                                text-gray-700 bg-rose-300 border border-rose-300 
+                                hover:bg-rose-400 hover:text-gray-800 
+                                peer-checked:bg-rose-400 peer-checked:border-rose-500
+                                dark:hover:text-gray-300 dark:border-gray-700 dark:peer-checked:text-blue-500
+                                dark:hover:bg-gray-700 dark:text-gray-400 dark:bg-gray-800">                           
                                     <div class="flex items-center space-x-2 w-full justify-center">
                                         <i class="fa-solid fa-briefcase text-sm"></i>
-                                        <p class="text-center text-sm">Work</p>
+                                        <p class="text-center text-sm font-medium">Work</p>
                                     </div>
                                 </label>
                             </div>
                             <!-- study categpry -->
                             <div>
                                 <input type="radio" id="study-ctg" name="category" value="Study" class="category hidden peer" required />
-                                <label for="study-ctg" class="inline-flex items-center justify-between w-full p-2 text-gray-500 bg-orange-100 border border-gray-200 rounded-lg cursor-pointer dark:hover:text-gray-300 dark:border-gray-700 dark:peer-checked:text-blue-500 peer-checked:border-blue-600 peer-checked:text-blue-600 hover:text-gray-600 hover:bg-gray-100 dark:text-gray-400 dark:bg-gray-800 dark:hover:bg-gray-700">                           
+                                <label for="study-ctg" class="inline-flex items-center justify-between w-full p-2 rounded-lg cursor-pointer
+                                text-gray-700 bg-amber-300 border border-amber-300
+                                hover:bg-amber-400  hover:text-gray-800
+                                peer-checked:bg-amber-400 peer-checked:border-amber-500
+                                dark:hover:text-gray-300 dark:border-gray-700 dark:peer-checked:text-blue-500 
+                                dark:text-gray-400 dark:bg-gray-800 dark:hover:bg-gray-700">                           
                                     <div class="flex items-center space-x-2 w-full justify-center">
                                         <i class="fa-solid fa-graduation-cap text-sm"></i>
-                                        <p class="text-center text-sm">Study</p>
+                                        <p class="text-center text-sm font-medium">Study</p>
                                     </div>
                                 </label>
                             </div>
                             <!-- sport category -->
                             <div>
                                 <input type="radio"  id="sport-ctg" name="category" value="Sport" class="category hidden peer" required />
-                                <label for="sport-ctg" class="inline-flex items-center justify-between w-full p-2 text-gray-500 bg-yellow-100 border border-gray-200 rounded-lg cursor-pointer dark:hover:text-gray-300 dark:border-gray-700 dark:peer-checked:text-blue-500 peer-checked:border-blue-600 peer-checked:text-blue-600 hover:text-gray-600 hover:bg-gray-100 dark:text-gray-400 dark:bg-gray-800 dark:hover:bg-gray-700">                           
+                                <label for="sport-ctg" class="inline-flex items-center justify-between w-full p-2 rounded-lg cursor-pointer
+                                text-gray-700 bg-yellow-300 border border-yellow-300
+                                hover:text-gray-800 hover:bg-yellow-400 
+                                peer-checked:bg-yellow-400 peer-checked:border-yellow-500
+                                dark:hover:text-gray-300 dark:border-gray-700 dark:peer-checked:text-blue-500 
+                                dark:text-gray-400 dark:bg-gray-800 dark:hover:bg-gray-700">                           
                                     <div class="flex items-center space-x-2 w-full justify-center">
                                         <i class="fa-solid fa-basketball text-sm"></i>
-                                        <p class="text-center text-sm">Sport</p>
+                                        <p class="text-center text-sm font-medium">Sport</p>
                                     </div>
                                 </label>
                             </div>
                             <!-- fun category -->
                             <div>
                                 <input type="radio"  id="fun-ctg" name="category" value="Fun" class=" category hidden peer" required />
-                                <label for="fun-ctg" class="inline-flex items-center justify-between w-full p-2 text-gray-500 bg-green-100 border border-gray-200 rounded-lg cursor-pointer dark:hover:text-gray-300 dark:border-gray-700 dark:peer-checked:text-blue-500 peer-checked:border-blue-600 peer-checked:text-blue-600 hover:text-gray-600 hover:bg-gray-100 dark:text-gray-400 dark:bg-gray-800 dark:hover:bg-gray-700">                           
+                                <label for="fun-ctg" class="inline-flex items-center justify-between w-full p-2 rounded-lg cursor-pointer
+                                text-gray-700 bg-emerald-300 border border-emerald-300 
+                                hover:text-gray-800 hover:bg-emerald-400 
+                                peer-checked:bg-emerald-400 peer-checked:border-emerald-500
+                                dark:hover:text-gray-300 dark:border-gray-700 dark:peer-checked:text-blue-500  dark:text-gray-400 dark:bg-gray-800 dark:hover:bg-gray-700">                           
                                     <div class="flex items-center space-x-2 w-full justify-center">
                                         <i class="fa-solid fa-calendar-days text-sm"></i>
-                                        <p class="text-center text-sm">Fun</p>
+                                        <p class="text-center text-sm font-medium">Fun</p>
                                     </div>
                                 </label>
                             </div>
                             <!-- family category -->
                             <div>
                                 <input type="radio" id="family-ctg" name="category" value="Family" class="category hidden peer" required />
-                                <label for="family-ctg" class="inline-flex items-center justify-between w-full p-2 text-gray-500 bg-blue-100 border border-gray-200 rounded-lg cursor-pointer dark:hover:text-gray-300 dark:border-gray-700 dark:peer-checked:text-blue-500 peer-checked:border-blue-600 peer-checked:text-blue-600 hover:text-gray-600 hover:bg-gray-100 dark:text-gray-400 dark:bg-gray-800 dark:hover:bg-gray-700">                           
+                                <label for="family-ctg" class="inline-flex items-center justify-between w-full p-2 rounded-lg cursor-pointer
+                                text-gray-700 bg-sky-300 border border-sky-300 
+                                hover:text-gray-800 hover:bg-sky-400 
+                                peer-checked:bg-sky-400 peer-checked:border-sky-500
+                                dark:hover:text-gray-300 dark:border-gray-700 dark:peer-checked:text-blue-500  dark:text-gray-400 dark:bg-gray-800 dark:hover:bg-gray-700">                           
                                     <div class="flex items-center space-x-2 w-full justify-center">
                                         <i class="fa-solid fa-people-roof text-sm"></i>
-                                        <p class="text-center text-sm">Family</p>
+                                        <p class="text-center text-sm font-medium">Family</p>
                                     </div>
                                 </label>
                             </div>
                             <!-- other category -->
                             <div>
                                 <input type="radio" id="other-ctg" name="category" value="Other" class="category hidden peer" required />
-                                <label for="other-ctg" class="inline-flex items-center justify-between w-full p-2 text-gray-500 bg-purple-100 border border-gray-200 rounded-lg cursor-pointer dark:hover:text-gray-300 dark:border-gray-700 dark:peer-checked:text-blue-500 peer-checked:border-blue-600 peer-checked:text-blue-600 hover:text-gray-600 hover:bg-gray-100 dark:text-gray-400 dark:bg-gray-800 dark:hover:bg-gray-700">                           
+                                <label for="other-ctg" class="inline-flex items-center justify-between w-full p-2 rounded-lg cursor-pointer
+                                 text-gray-700 bg-violet-300 border border-violet-300
+                                 hover:text-gray-800 hover:bg-violet-400  
+                                 peer-checked:bg-violet-400 peer-checked:border-violet-500
+                                 dark:hover:text-gray-300 dark:border-gray-700 dark:peer-checked:text-blue-500  dark:text-gray-400 dark:bg-gray-800 dark:hover:bg-gray-700">                           
                                     <div class="flex items-center space-x-2 w-full justify-center">
                                         <i class="fa-regular fa-note-sticky text-sm"></i>
-                                        <p class="text-center text-sm">Other</p>
+                                        <p class="text-center text-sm font-medium">Other</p>
                                     </div>
                                 </label>
                             </div>
                         </div>
                 </div>
-                <!-- Modal footer -->
+                <!-- btn-submit modal-->
+                 <!--  -->
               <button type="submit" id="btn-submit-add-task"
-                            class="w-full text-white bg-yellow-300 hover:bg-yellow-500 rounded-br-[2.5em] rounded-bl-xl
-                            focus:ring-4 focus:outline-none focus:ring-blue-300 font-medium text-sm px-5 py-4 text-center
+                            class="w-full text-white bg-amber-400 hover:bg-amber-500 rounded-br-[2.5em] rounded-bl-xl
+                            font-medium text-sm px-5 py-4 text-center
                              dark:bg-blue-600 dark:hover:bg-blue-700 dark:focus:ring-blue-800">
                             Add Task
                         </button>
