@@ -15,6 +15,7 @@ import "../assets/images/sport-icon.png";
 import "../assets/images/fun-icon.png";
 import "../assets/images/family-icon.png";
 import "../assets/images/other-icon.png";
+import "../assets/images/todo-logo.png";
 
 $(document).ready(function () {
   const currentPage = window.location.pathname;   // get current path location
