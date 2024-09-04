@@ -1,7 +1,7 @@
-// import js
+// Import CSS
 import "../../src/css/main.css";
 
-// import img
+// Import images
 import "../assets/images/icon-splash.png";
 import "../assets/images/user1.jpg";
 import "../assets/images/user2.jpg";
@@ -16,169 +16,177 @@ import "../assets/images/fun-icon.png";
 import "../assets/images/family-icon.png";
 import "../assets/images/other-icon.png";
 
- $(document).ready(function () {
-  const currentPage = window.location.pathname;
-
-  const checkUser = () => {
-    if (currentPage === "/dist/todo.html") {
+$(document).ready(function () {
+  const currentPage = window.location.pathname;   // get current path location
+  const checkUser = () => {   // function to check has the user set the username yet
+    // username not set
+    if (currentPage === "/dist/todo.html" || currentPage === "/dist/task-work.html" || currentPage === "/dist/task-study.html" || currentPage === "/dist/task-sport.html" || currentPage === "/dist/task-fun.html" || currentPage === "/dist/task-family.html" || currentPage === "/dist/task-other.html" ) {
       if (localStorage.getItem("user") === null) {
-        window.location.href = "index.html";
+        window.location.href = "index.html";  // redirect page
       }
-    } else if (currentPage === "/dist/index.html" || currentPage === "/dist/") {
+    } else if (currentPage === "/dist/index.html" || currentPage === "/dist/") { // username set
       if (localStorage.getItem("user") !== null) {
-        window.location.href = "todo.html";
+        window.location.href = "todo.html"; // redirect page
       }
     }
   };
 
-  let inputUserName = $("#input-username");
-  const btnInputUserName = $("#btn-input-username");
-
-  const setUser = () => {
-    localStorage.setItem("user", inputUserName.val().trim());
-    window.location.href = "todo.html";
+  let inputUserName = $("#input-username");   // selector input username
+  const btnInputUserName = $("#btn-input-username");   // selector btn input username
+  const setUser = () => {   // function to set username
+    localStorage.setItem("user", inputUserName.val().trim()); // get value by input username
+    window.location.href = "todo.html";  // redirect poge
   };
 
-  $(btnInputUserName).on("click", (e) => {
+  $(btnInputUserName).on("click", (e) => { // event click btn input username
     e.preventDefault();
+    if (inputUserName.val().trim() === "") { // if input username empty value
+      alert("Please enter your name-!"); // display alert
+      return;
+    }
+    setUser(); // running  function setUser
+  });
+  checkUser();   // running function checkUser every time the website load
 
-    if (inputUserName.val().trim() === "") {
-      alert("Please enter your name.");
+  const currentDate = new Date();   // set function date
+  // list day name
+  const listDay = ["Sunday", "Monday", "Tuesday", "Wednesday", "Thursday", "Friday", "Saturday"];
+  // list month name
+  const listMonth = ["January", "February", "March", "April", "May", "June", "July", "August", "September", "October", "November", "December"];
+
+
+  $("#current-date").text(currentDate.getDate().toString().padStart(2, "0")); // get currentDate [00]
+  $("#current-month").text(listMonth[currentDate.getMonth()]);  // get currentMonth
+  $("#current-day").text(listDay[currentDate.getDay()]);  // get currentDay
+
+  $("#username").text(localStorage.getItem("user"));  // get username by localstorage and display in page
+
+  const initializeTasks = (key) => {   // initialize localstorage each task if not exists
+    if (localStorage.getItem(key) === null) { 
+      localStorage.setItem(key, JSON.stringify([]));  // set empty array if not set
+    }
+  };
+
+  initializeTasks("taskWork");   // check localstorage task work
+  initializeTasks("taskStudy");   // check localstorage task study
+  initializeTasks("taskSport");   // check localstorage task sport
+  initializeTasks("taskFun");   // check localstorage task fun
+  initializeTasks("taskFamily");   // check localstorage task family
+  initializeTasks("taskOther");   // check localstorage task other
+
+const updateTotalTaskCount = () => {  // update total all task 
+  // initialize name of localstorage each task
+  const totalTaskCount = ["taskWork", "taskStudy", "taskSport", "taskFun", "taskFamily", "taskOther"]
+    .map(key => { 
+      const taskArray = JSON.parse(localStorage.getItem(key)) || []; // parse return of localstorage
+      return taskArray.filter(task => !task.isCompleted).length; // only count incomplete tasks
+    }) 
+    .reduce((sum, count) => sum + count, 0);
+    
+  $("#total-all-task").text(totalTaskCount); // update the total task count element
+};
+
+const updateTaskCount = (key, element) => { // update count of each task
+  const taskArray = JSON.parse(localStorage.getItem(key)) || [];  // get localstorage 
+  const incompleteTasks = taskArray.filter(task => !task.isCompleted);   // get count of incomplete task
+  element.text(incompleteTasks.length);    // Update the element with the count of incomplete tasks
+};
+
+ updateTotalTaskCount(); // running function updateTotalTaskCount every time the website load
+
+  const createId = () => +new Date();   // generate unique task ID
+
+  const getCheckedRadioValue = () => {  // get the value of the selected radio button (task category)
+    return $("input.category:checked").val() || null;
+  };
+
+  const addTaskWork = () => {  // add new task
+    const taskCategory = getCheckedRadioValue(); // get the value of the selected radio button (task category)
+    const taskTitle = $("#input-new-task").val().trim(); // get the value of title task
+
+    if (!taskTitle || !taskCategory) { // if the user not set title task or choose task category
+      alert("Please enter a task and select a category."); // display alert
       return;
     }
 
-    setUser();
-  });
-
-  checkUser();
-
-  const currentDate = new Date();
-  let listDay = [
-    "Sunday",
-    "Monday",
-    "Tuesday",
-    "Wednesday",
-    "Thursday",
-    "Friday",
-    "Saturday",
-  ];
-  let listMonth = [
-    "January",
-    "February",
-    "March",
-    "April",
-    "May",
-    "June",
-    "July",
-    "August",
-    "September",
-    "October",
-    "November",
-    "December",
-  ];
-  let formattedDate = currentDate.getDate().toString().padStart(2, "0");
-  $("#current-date").text(formattedDate);
-  $("#current-month").text(listMonth[currentDate.getMonth()]);
-  $("#current-day").text(listDay[currentDate.getDay()]);
-
-  $("#username").text(localStorage.getItem("user"));
-
-  const initializeTasks = (key) => {
-    if (localStorage.getItem(key) === null) {
-      localStorage.setItem(key, JSON.stringify([])); 
-    }
-  };
-
-  initializeTasks("taskWork");
-  initializeTasks("taskStudy");
-  initializeTasks("taskSport");
-  initializeTasks("taskFun");
-  initializeTasks("taskFamily");
-  initializeTasks("taskOther");
-
-  const updateTaskCount = (key, element) => {
-    let taskArray = JSON.parse(localStorage.getItem(key));
-    element.text(taskArray.length); 
-  };
-
-  const updateTotalTaskCount = () => {
-    let taskWorkCount = JSON.parse(localStorage.getItem("taskWork")).length;
-    let taskStudyCount = JSON.parse(localStorage.getItem("taskStudy")).length;
-    let taskSportCount = JSON.parse(localStorage.getItem("taskSport")).length;
-    let taskFunCount = JSON.parse(localStorage.getItem("taskFun")).length;
-    let taskFamilyCount = JSON.parse(localStorage.getItem("taskFamily")).length;
-    let taskOtherCount = JSON.parse(localStorage.getItem("taskOther")).length;
-
-    let totalTaskCount =
-      taskWorkCount +
-      taskStudyCount +
-      taskSportCount +
-      taskFunCount +
-      taskFamilyCount +
-      taskOtherCount;
-
-    $("#total-all-task").text(totalTaskCount);
-  };
-
-  updateTotalTaskCount();
-
-  const createId = () => {
-    return +new Date();
-  };
-
-  const getCheckedRadioValue = () => {
-    const checkedValue = $("input.category:checked").val();
-    return checkedValue || null;
-  };
-
-  const appendTaskToDOM = (taskText) => {
-    let div = $("<div></div>");
-    div.addClass("mb-3");
-    let input = $("<input type='checkbox' name='checkbox' id=''>");
-    input.addClass("peer w-4 h-4 text-blue-600 bg-gray-100 border-gray-300 rounded focus:ring-blue-500 dark:focus:ring-blue-600 dark:ring-offset-gray-800 focus:ring-2 dark:bg-gray-700 dark:border-gray-600");
-    let label = $(`<label for='checkbox'>${taskText.title}, ${taskText.isCompleted}</label>`);
-    label.addClass("peer-checked:line-through peer-checked:italic   ms-4 text-sm font-medium text-gray-900 dark:text-gray-300")
-
-    div.append(input);
-    div.append(label);
-    $("#task-list").append(div);
-  };
-
-  const addTaskWork = () => {
-    const generateId = createId();
-    const taskCategory = getCheckedRadioValue();
-    const taskTitle = $("#input-new-task").val().trim();
-
+    // set data structure task
     const newTaskWork = {
-      id: generateId,
+      id: createId(),
       title: taskTitle,
       category: taskCategory,
-      isCompleted: false,
+      isCompleted: false, // incompleted task
     };
 
-    let taskArray = JSON.parse(localStorage.getItem(`task${taskCategory}`)) || [];
-    taskArray.push(newTaskWork);
+  // get and parse localstorage according to task category selected
+    let taskArray = JSON.parse(localStorage.getItem(`task${taskCategory}`)) || []; 
+    taskArray.push(newTaskWork); // push in array
+      // set and stringify localstorage according to task category selected
     localStorage.setItem(`task${taskCategory}`, JSON.stringify(taskArray));
-
-    appendTaskToDOM(newTaskWork);
-    updateTotalTaskCount();
-    updateTaskCount("taskWork", $("#task-work"));
+    // get selector task list location according to localstorage
+    const targetElement = `#task-list-${taskCategory.toLowerCase()}`; 
+    appendTaskToDOM(newTaskWork, taskCategory, targetElement); // render to page
+    updateTotalTaskCount(); // update total task count
+    updateTaskCount(`task${taskCategory}`, $(`#task-${taskCategory.toLowerCase()}`)); // update count of task by selected task
   };
 
-  const loadTasksFromStorage = () => {
-    ["taskWork", "taskStudy", "taskSport", "taskFun", "taskFamily", "taskOther"].forEach((category) => {
-      let taskArray = JSON.parse(localStorage.getItem(category)) || [];
-      taskArray.forEach((task) => appendTaskToDOM(task)); 
+    const appendTaskToDOM = (taskText, taskCategory, targetElement) => {  // render task to page
+      // create element for task list
+      const container = $("<div></div>").addClass("mb-8");
+      const wrapper = $("<div></div>").addClass("flex items-center space-x-5");
+  
+      const checkbox = $("<input type='checkbox'>").addClass("peer size-6 text-emerald-400 bg-gray-100 border-gray-500 rounded focus:ring-emerald-500 cursor-pointer");
+      checkbox.prop("checked", taskText.isCompleted);  // set checkbox status based on task completion
+  
+      const label = $(`<label>${taskText.title}</label>`).addClass("peer-checked:italic peer-checked:line-through flex-1 font-semibold text-gray-900 dark:text-gray-300");
+  
+      const trashIcon = $("<i></i>").addClass("fa-solid fa-trash text-lg font-semibold text-gray-500 hover:text-red-600 cursor-pointer");
+  
+      const divider = $("<hr>").addClass("mt-7 border-gray-300");
+  
+      container.append(wrapper);
+      wrapper.append(checkbox);
+      wrapper.append(label);
+      wrapper.append(trashIcon);
+      container.append(divider);
+      $(targetElement).append(container);
+  
+      checkbox.on("change", function () { // checkbox event listener for updating task status
+        taskText.isCompleted = this.checked; // check status checkbox
+        updateTaskInStorage(taskText.id, taskCategory, taskText.isCompleted); // update task in localstorage
+        updateTaskCount(`task${taskCategory}`, $(`#task-${taskCategory.toLowerCase()}`)); // update task count
+        updateTotalTaskCount(); // update total taks count
+      });
+    };
+
+  // update task if task is completed
+  const updateTaskInStorage = (taskId, taskCategory, isCompleted) => {  // update task in localStorage when checkbox is clicked
+    let taskArray = JSON.parse(localStorage.getItem(`task${taskCategory}`)) || []; // get localstorage by selected task
+    taskArray = taskArray.map(task => {
+      if (task.id === taskId) {
+        task.isCompleted = isCompleted; // check status task
+      }
+      return task;
+    });
+    localStorage.setItem(`task${taskCategory}`, JSON.stringify(taskArray)); // update status in localstorage
+  };
+
+  const loadTasksFromStorage = () => {   // load tasks from localStorage and append to DOM
+    // initialize each task in localstorage
+    ["taskWork", "taskStudy", "taskSport", "taskFun", "taskFamily", "taskOther"].forEach(category => {
+      const taskArray = JSON.parse(localStorage.getItem(category)) || []; // get localstorage 
+      const taskCategory = category.replace("task", ""); // extract category name from key
+      const targetElement = `#task-list-${taskCategory.toLowerCase()}`;
+      
+      taskArray.forEach(task => appendTaskToDOM(task, taskCategory, targetElement));
     });
   };
 
-  $("#btn-submit-add-task").on("click", function () {
-    addTaskWork();
-  });
+  $("#btn-submit-add-task").on("click", addTaskWork); // event listener for adding a new task
 
-  // Load tasks when the page loads
-  loadTasksFromStorage();
+ 
+  loadTasksFromStorage(); // running function loadTasksFromStorage every time the website load
 
+  // Update task counts in each category and match that selector
   updateTaskCount("taskWork", $("#task-work"));
   updateTaskCount("taskStudy", $("#task-study"));
   updateTaskCount("taskSport", $("#task-sport"));
@@ -186,5 +194,3 @@ import "../assets/images/other-icon.png";
   updateTaskCount("taskFamily", $("#task-family"));
   updateTaskCount("taskOther", $("#task-other"));
 });
-
-
