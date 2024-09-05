@@ -1,7 +1,7 @@
-// Import CSS
+// import CSS
 import "../../src/css/main.css";
 
-// Import images
+// import images
 import "../assets/images/icon-splash.png";
 import "../assets/images/user1.jpg";
 import "../assets/images/user2.jpg";
@@ -16,6 +16,7 @@ import "../assets/images/fun-icon.png";
 import "../assets/images/family-icon.png";
 import "../assets/images/other-icon.png";
 import "../assets/images/todo-logo.png";
+
 
 $(document).ready(function () {
   const currentPage = window.location.pathname;   // get current path location
@@ -129,28 +130,63 @@ const updateTaskCount = (key, element) => { // update count of each task
     updateTotalTaskCount(); // update total task count
     updateTaskCount(`task${taskCategory}`, $(`#task-${taskCategory.toLowerCase()}`)); // update count of task by selected task
   };
-
+  // 
+  
     const appendTaskToDOM = (taskText, taskCategory, targetElement) => {  // render task to page
       // create element for task list
-      const container = $("<div></div>").addClass("mb-8");
-      const wrapper = $("<div></div>").addClass("flex items-center space-x-5");
-  
+      const container = $("<div></div>").addClass("mb-8");  // create container 
+      const wrapper = $("<div></div>").addClass("flex items-center space-x-5"); // create wrapper
+      // create checkbox
       const checkbox = $("<input type='checkbox'>").addClass("peer size-6 text-emerald-400 bg-gray-100 border-gray-500 rounded focus:ring-emerald-500 cursor-pointer");
       checkbox.prop("checked", taskText.isCompleted);  // set checkbox status based on task completion
-  
+      // create label
       const label = $(`<label>${taskText.title}</label>`).addClass("peer-checked:italic peer-checked:line-through flex-1 font-semibold text-gray-900 dark:text-gray-300");
-  
+      // create trash-icon
       const trashIcon = $("<i></i>").addClass("fa-solid fa-trash text-lg font-semibold text-gray-500 hover:text-red-600 cursor-pointer");
-  
+      trashIcon.attr('id', `delete-modal-${taskText.id}`);  // set id trash-icon by task-id
+      trashIcon.attr('data-modal-target', `delete-modal-${taskText.id}`);  // set data-modal-target trash-icon by task-id
+      trashIcon.attr('data-modal-toggle', `delete-modal-${taskText.id}`); // // set data-modal-toggle trash-icon by task-id
+      // create divider
       const divider = $("<hr>").addClass("mt-7 border-gray-300");
-  
+      // render element
       container.append(wrapper);
       wrapper.append(checkbox);
       wrapper.append(label);
       wrapper.append(trashIcon);
       container.append(divider);
+      // render element to selector
       $(targetElement).append(container);
   
+// event trash-icon
+trashIcon.on("click", () => {
+ // show delete-modal
+  $(`.delete-modal`).attr({
+    'id':`delete-modal-${taskText.id}`,
+    'aria-modal' :  'true',
+    'role' : 'dialog'
+  }).removeAttr('aria-hidden')
+  .removeClass('hidden').addClass('flex');
+  $(`.data-modal-hide`).attr('data-modal-hide',`delete-modal-${taskText.id}`);
+
+   // close delete modal
+  $(`.data-modal-hide, .delete-modal`).on("click", () => {
+    $('div.bg-gray-900\\/50.dark\\:bg-gray-900\\/80.fixed.inset-0.z-40').remove();
+    $('body').removeClass('overflow-hidden');
+    $('.delete-modal').removeAttr('id aria-modal role')
+    .attr('aria-hidden','true').addClass('hidden').removeClass('flex');
+    $(`.data-modal-hide`).removeAttr('data-modal-hide');
+  });
+ 
+// event btn-confirm-delete
+  $(`#btn-confirm-delete`).on("click", () => {
+ // delete the task from localStorage and DOM
+ deleteTask(taskText.id, taskCategory, container); // `container` is the DOM element for the task
+   // close the modal
+   $('.delete-modal').attr('aria-hidden', 'true').addClass('hidden').removeClass('flex').removeAttr('id aria-modal role');
+   $('body').removeClass('overflow-hidden');
+  })
+});
+// 
       checkbox.on("change", function () { // checkbox event listener for updating task status
         taskText.isCompleted = this.checked; // check status checkbox
         updateTaskInStorage(taskText.id, taskCategory, taskText.isCompleted); // update task in localstorage
@@ -194,4 +230,18 @@ const updateTaskCount = (key, element) => { // update count of each task
   updateTaskCount("taskFun", $("#task-fun"));
   updateTaskCount("taskFamily", $("#task-family"));
   updateTaskCount("taskOther", $("#task-other"));
+
+  // function to delete task
+  const deleteTask = (taskId, taskCategory, elementToRemove) => {
+    let taskArray = JSON.parse(localStorage.getItem(`task${taskCategory}`)) || []; // ger localstorage
+    // filter out the task with the specified ID
+    taskArray = taskArray.filter(task => task.id !== taskId);
+    localStorage.setItem(`task${taskCategory}`, JSON.stringify(taskArray)); // Update localStorage
+    const updatedTaskArray = JSON.parse(localStorage.getItem(`task${taskCategory}`)) || []; // verify if the update was successful
+    elementToRemove.remove();     // remove the task element from the DOM
+  
+    // update the task count after deletion
+    updateTaskCount(`task${taskCategory}`, $(`#task-${taskCategory.toLowerCase()}`));
+    updateTotalTaskCount();
+  };
 });
