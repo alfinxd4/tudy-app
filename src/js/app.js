@@ -218,8 +218,10 @@ trashIcon.on("click", () => {
     });
   };
 
-  $("#btn-submit-add-task").on("click", addTaskWork); // event listener for adding a new task
 
+  $("#btn-submit-add-task").on("click", () => {
+    addTaskWork();
+  });
  
   loadTasksFromStorage(); // running function loadTasksFromStorage every time the website load
 
