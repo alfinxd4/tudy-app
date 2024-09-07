@@ -43,23 +43,22 @@
 <body class="bg-slate-100  dark:bg-gray-900 h-screen overflow-hidden">
     <!-- yellow circle background -->
     <div class="fixed -top-64 right-1/2 left-1/2  -translate-x-1/2  size-[28rem] bg-amber-300 dark:bg-sky-700 rounded-full -z-10"> 
-            <!-- display current date -->
-        <div class="absolute w-full top-64" >
-        <a href="todo.html" class="absolute top-11 left-10 ">
-            <i class="fa-solid fa-arrow-left-long text-2xl text-gray-800 dark:text-gray-100"></i>
-        </a>
-        <!--  -->
-        <div class="text-center my-auto text-gray-800 dark:text-gray-100 pt-10 font-bold">
-            <p id="current-month" class="text-2xl"></p>
-            <p id="current-date" class="text-xl"></p>
-            <p id="current-day" class="text-lg"></p>
-        </div>
-        </div>
-    </div>
 
+    </div>
+            <!-- display current date -->
+            <div class="absolute w-full" >
+                <a href="todo.html" class="absolute top-11 w-60 left-1/2 -translate-x-1/2">
+                    <i class="fa-solid fa-arrow-left-long text-2xl text-gray-800 dark:text-gray-100"></i>
+                </a>
+                <!--  -->
+                <div class="text-center my-auto text-gray-800 dark:text-gray-100 pt-10 font-bold">
+                    <p id="current-month" class="text-2xl"></p>
+                    <p id="current-date" class="text-xl"></p>
+                    <p id="current-day" class="text-lg"></p>
+                </div>
+                </div>
     <!-- main content -->
-    <main class="w-80  mx-auto absolute right-1/2 left-1/2   -translate-x-1/2  top-48 ">
-        <div class="">
+    <main class="w-80 mx-auto absolute right-1/2 left-1/2   -translate-x-1/2  top-52 ">
         <!--  -->
         <div class="flex items-center justify-between dark:text-gray-100">
             <div class="flex items-center space-x-5">
@@ -76,11 +75,9 @@
         </div>
 
    <!-- container task list -->
-        <div class="mt-12 overflow-y-auto  max-h-[20rem] no-scrollbar" id="task-list-work">
+        <div class="mt-12 px-1 overflow-y-auto  max-h-[19rem] no-scrollbar" id="task-list-work">
 
         </div>
-        </div>
-
     </main>
   
 <!-- menu -->

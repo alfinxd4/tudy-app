@@ -140,9 +140,9 @@ const updateTaskCount = (key, element) => { // update count of each task
       const checkbox = $("<input type='checkbox'>").addClass("peer size-6 text-emerald-400 bg-gray-100 border-gray-500 rounded focus:ring-emerald-500 cursor-pointer");
       checkbox.prop("checked", taskText.isCompleted);  // set checkbox status based on task completion
       // create label
-      const label = $(`<label>${taskText.title}</label>`).addClass("peer-checked:italic peer-checked:line-through flex-1 font-semibold text-gray-900 dark:text-gray-300");
+      const label = $(`<label>${taskText.title}</label>`).addClass("peer-checked:italic peer-checked:line-through flex-1 font-semibold text-gray-900 dark:text-gray-100");
       // create trash-icon
-      const trashIcon = $("<i></i>").addClass("fa-solid fa-trash text-lg font-semibold text-gray-500 hover:text-red-600 cursor-pointer");
+      const trashIcon = $("<i></i>").addClass("fa-solid fa-trash text-lg font-semibold text-gray-500 dark:text-gray-100 hover:text-red-600  dark:hover:text-red-600 cursor-pointer");
       trashIcon.attr('id', `delete-modal-${taskText.id}`);  // set id trash-icon by task-id
       trashIcon.attr('data-modal-target', `delete-modal-${taskText.id}`);  // set data-modal-target trash-icon by task-id
       trashIcon.attr('data-modal-toggle', `delete-modal-${taskText.id}`); // // set data-modal-toggle trash-icon by task-id
