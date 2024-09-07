@@ -4,21 +4,33 @@
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <!-- title page -->
     <title>Tudy App</title>
+    <!-- stylesheet css -->
     <link rel="stylesheet" href="css/app.css">
+    <!-- cdn library jquery -->
     <script src="https://code.jquery.com/jquery-3.7.1.js"
         integrity="sha256-eKhayi8LEQwp4NKxN+CfCh+3qOVUtJn3QNZ0TciWLP4=" crossorigin="anonymous"></script>
+        <!-- cdn font awesome -->
     <script src="https://kit.fontawesome.com/c8105c8ce4.js" crossorigin="anonymous"></script>
+        <!-- library flowbite.css-->
     <link href="https://cdn.jsdelivr.net/npm/flowbite@2.5.1/dist/flowbite.min.css" rel="stylesheet" />
+        <!-- icon tab -->
     <link rel="icon" type="image/x-icon" href="assets/images/todo-logo.png">
+    <!-- darkmode config -->
+    <script>
+        tailwind.config = {
+            darkMode: 'class'
+        }
+    </script>
 </head>
 
-<body class="bg-slate-100 relative overflow-x-hidden">
+<body class="bg-slate-100 dark:bg-gray-900  relative overflow-x-hidden">
     <!-- yellow circle background -->
-    <div class="absolute -top-[8em] left-1/2 -translate-x-1/2 size-[32rem] bg-amber-300 rounded-full -z-10"></div>
+    <div class="fixed -top-[8em] left-1/2 -translate-x-1/2 size-[32rem] bg-amber-300 dark:bg-sky-700 rounded-full -z-10"></div>
      <main class="max-w-64 mx-auto pt-6 pb-20 relative">
         <!-- profile-info -->
-        <div class="flex items-center justify-between ">
+        <div class="fixed flex top-0 right-1/2 left-1/2  -translate-x-1/2 w-[18rem] py-5   items-center space-x-16 z-10  dark:bg-sky-700 justify-between dark:text-gray-100">
             <div>
                 <!--  -->
                 <p class="font-bold text-lg">Hi-!
@@ -34,9 +46,9 @@
             </div>
         </div>
         <!-- list task -->
-        <div class="my-10 relative">
+        <div class="pb-24 relative top-20">
             <!-- task work -->
-            <a href="task-work.html" class=" flex items-center space-x-3 bg-white rounded-br-[2.5rem] rounded-tl-[2.5rem] rounded-bl-xl rounded-tr-xl mb-4 shadow-lg">
+            <a href="task-work.html" class=" flex items-center space-x-3 bg-white dark:bg-gray-800 dark:text-gray-100 rounded-br-[2.5rem] rounded-tl-[2.5rem] rounded-bl-xl rounded-tr-xl mb-4 shadow-lg">
                 <!-- icon task work -->
                 <div class="p-5">
                     <img src="assets/images/work-icon.png" alt="icon_task_work" class="size-12">
@@ -51,7 +63,7 @@
                 </div>
             </a>
            <!-- task study -->
-           <a href="task-study.html" class=" flex items-center space-x-3 bg-white rounded-br-[2.5rem] rounded-tl-[2.5rem] rounded-bl-xl rounded-tr-xl mb-4 shadow-lg">
+           <a href="task-study.html" class=" flex items-center space-x-3 bg-white dark:bg-gray-800  dark:text-gray-100 rounded-br-[2.5rem] rounded-tl-[2.5rem] rounded-bl-xl rounded-tr-xl mb-4 shadow-lg">
             <!-- icon task study -->
             <div class="p-5">
                 <img src="assets/images/study-icon.png" alt="icon_task_study" class="size-12">
@@ -66,7 +78,7 @@
             </div>
         </a>
             <!-- task sport -->
-           <a href="task-sport.html" class=" flex items-center space-x-3 bg-white rounded-br-[2.5rem] rounded-tl-[2.5rem] rounded-bl-xl rounded-tr-xl mb-4 shadow-lg">
+           <a href="task-sport.html" class=" flex items-center space-x-3 bg-white dark:bg-gray-800 dark:text-gray-100 rounded-br-[2.5rem] rounded-tl-[2.5rem] rounded-bl-xl rounded-tr-xl mb-4 shadow-lg">
             <!-- icon task sport -->
             <div class="p-5">
                 <img src="assets/images/sport-icon.png" alt="icon_task_sport" class="size-12">
@@ -81,7 +93,7 @@
             </div>
         </a>
               <!-- task fun -->
-              <a href="task-fun.html" class=" flex items-center space-x-3 bg-white rounded-br-[2.5rem] rounded-tl-[2.5rem] rounded-bl-xl rounded-tr-xl mb-4 shadow-lg">
+              <a href="task-fun.html" class=" flex items-center space-x-3 bg-white dark:bg-gray-800 dark:text-gray-100 rounded-br-[2.5rem] rounded-tl-[2.5rem] rounded-bl-xl rounded-tr-xl mb-4 shadow-lg">
                 <!-- icon task fun -->
                 <div class="p-5">
                     <img src="assets/images/fun-icon.png" alt="icon_task_fun" class="size-12">
@@ -96,7 +108,7 @@
                 </div>
             </a>
             <!-- task family -->
-            <a href="task-family.html" class=" flex items-center space-x-3 bg-white rounded-br-[2.5rem] rounded-tl-[2.5rem] rounded-bl-xl rounded-tr-xl mb-4 shadow-lg">
+            <a href="task-family.html" class=" flex items-center space-x-3 bg-white dark:bg-gray-800 dark:text-gray-100 rounded-br-[2.5rem] rounded-tl-[2.5rem] rounded-bl-xl rounded-tr-xl mb-4 shadow-lg">
                 <!-- icon task family -->
                 <div class="p-5">
                     <img src="assets/images/family-icon.png" alt="icon_task_family" class="size-12">
@@ -111,7 +123,7 @@
                 </div>
             </a>
           <!-- task other -->
-          <a href="task-other.html" class=" flex items-center space-x-3 bg-white rounded-br-[2.5rem] rounded-tl-[2.5rem] rounded-bl-xl rounded-tr-xl mb-4 shadow-lg">
+          <a href="task-other.html" class=" flex items-center space-x-3 bg-white dark:bg-gray-800 dark:text-gray-100 rounded-br-[2.5rem] rounded-tl-[2.5rem] rounded-bl-xl rounded-tr-xl mb-4 shadow-lg">
             <!-- icon task other -->
             <div class="p-5">
                 <img src="assets/images/other-icon.png" alt="icon_task_other" class="size-12">
@@ -127,30 +139,31 @@
         </a>
         </div>
     </main>
-    <!-- menu -->
-    <div class="bg-slate-100 fixed bottom-0 w-full" >
-        <!-- menu list -->
-        <div class="max-w-64 h-20 mx-auto flex items-center justify-around ">
-            <!-- todo-menu -->
-            <a href="todo.html" class="mx-auto text-center cursor-pointer">
-                <i class="fa-solid fa-list-check text-gray-700 text-2xl"></i>
-                <p class="font-medium text-xs">To Do</p>
-            </a>
-            <!-- add-task-menu -->
-            <button type="button" data-modal-target="add-task-modal" data-modal-toggle="add-task-modal"
-                class="mx-auto text-center cursor-pointer relative -top-7">
-                <div class="  bg-teal-400  size-16 rounded-full  flex items-center justify-center  ">
-                    <i class="fa-solid fa-plus text-4xl text-white"></i>
-                </div>
-            </button>
-            <!-- setting-menu -->
-            <a href="setting.html" class="mx-auto text-center cursor-pointer">
-                <i class="fa-solid fa-user text-gray-700 text-2xl "></i>
-                <p class="font-medium text-xs">
-                    Setting</p>
-            </a>
-        </div>
+ <!-- menu -->
+<div class="bg-slate-100 dark:bg-gray-900 fixed bottom-0 w-full" >
+    <!-- menu list -->
+    <div class="max-w-64 h-20 mx-auto flex items-center justify-around ">
+        <!-- todo-menu -->
+        <a href="todo.html" class="mx-auto text-center cursor-pointer">
+            <i class="fa-solid fa-list-check text-gray-700 dark:text-gray-100 text-2xl"></i>
+            <p class="font-medium text-xs dark:text-gray-100">To Do</p>
+        </a>
+        <!-- add-task-menu -->
+        <button type="button" data-modal-target="add-task-modal" data-modal-toggle="add-task-modal"
+            class="mx-auto text-center cursor-pointer relative -top-7">
+            <div class="bg-teal-400 dark:bg-teal-300  size-16 rounded-full  flex items-center justify-center  ">
+                <i class="fa-solid fa-plus text-4xl text-gray-100"></i>
+            </div>
+        </button>
+        <!-- setting-menu -->
+        <a href="setting.html" class="mx-auto text-center cursor-pointer">
+            <i class="fa-solid fa-user text-gray-700 dark:text-gray-100 text-2xl "></i>
+            <p class="font-medium text-xs dark:text-gray-100">
+                Setting</p>
+        </a>
     </div>
+</div>
+
 
     <!-- modal task-modal -->
     <div id="add-task-modal" tabindex="-1" aria-hidden="true"
@@ -179,8 +192,8 @@
                         <label for="" class="block text-sm font-medium text-gray-900 dark:text-white mb-4">
                             <p class="font-bold my-2">New Task</p>
                             <input type="text" id="input-new-task"
-                                class="text-sm border-0 border-b-2 w-full py-1.5 px-0
-                                focus:border-amber-400 focus:ring-0 focus:outline-none" 
+                                class="text-sm border-0 border-b-2 w-full py-1.5 px-0  dark:bg-transparent
+                                focus:border-amber-400  dark:focus:border-slate-100 focus:ring-0 focus:outline-none" 
                                 autocomplete="off" placeholder="Meeting : Company Profile" required >
                         </label>
                         <!-- choose category -->
@@ -189,11 +202,11 @@
                             <div>
                                 <input type="radio" id="work-ctg" name="category" value="Work" class="category hidden peer" required />
                                 <label for="work-ctg" class="inline-flex items-center justify-between w-full p-2 rounded-lg cursor-pointer 
-                                text-gray-700 bg-rose-300 border border-rose-300 
-                                hover:bg-rose-400 hover:text-gray-800 
-                                peer-checked:bg-rose-400 peer-checked:border-rose-500
-                                dark:hover:text-gray-300 dark:border-gray-700 dark:peer-checked:text-blue-500
-                                dark:hover:bg-gray-700 dark:text-gray-400 dark:bg-gray-800">                           
+                                text-gray-700 hover:text-gray-800 dark:text-slate-100 dark:hover:text-gray-200
+                                bg-rose-300  hover:bg-rose-400 dark:bg-rose-600 dark:hover:bg-rose-500
+                                border border-rose-300 dark:border-rose-600
+                                peer-checked:bg-rose-400  peer-checked:border-2 peer-checked:border-rose-800 
+                                dark:peer-checked:bg-rose-600 dark:peer-checked:border-rose-300">                           
                                     <div class="flex items-center space-x-2 w-full justify-center">
                                         <i class="fa-solid fa-briefcase text-sm"></i>
                                         <p class="text-center text-sm font-medium">Work</p>
@@ -204,11 +217,11 @@
                             <div>
                                 <input type="radio" id="study-ctg" name="category" value="Study" class="category hidden peer" required />
                                 <label for="study-ctg" class="inline-flex items-center justify-between w-full p-2 rounded-lg cursor-pointer
-                                text-gray-700 bg-amber-300 border border-amber-300
-                                hover:bg-amber-400  hover:text-gray-800
-                                peer-checked:bg-amber-400 peer-checked:border-amber-500
-                                dark:hover:text-gray-300 dark:border-gray-700 dark:peer-checked:text-blue-500 
-                                dark:text-gray-400 dark:bg-gray-800 dark:hover:bg-gray-700">                           
+                                text-gray-700 hover:text-gray-800 dark:text-slate-100 dark:hover:text-gray-200
+                                bg-amber-300  hover:bg-amber-400 dark:bg-amber-600 dark:hover:bg-amber-500
+                                border border-amber-300 dark:border-amber-600
+                                peer-checked:bg-amber-400  peer-checked:border-2 peer-checked:border-amber-800 
+                                dark:peer-checked:bg-amber-600 dark:peer-checked:border-amber-300">           
                                     <div class="flex items-center space-x-2 w-full justify-center">
                                         <i class="fa-solid fa-graduation-cap text-sm"></i>
                                         <p class="text-center text-sm font-medium">Study</p>
@@ -219,11 +232,11 @@
                             <div>
                                 <input type="radio"  id="sport-ctg" name="category" value="Sport" class="category hidden peer" required />
                                 <label for="sport-ctg" class="inline-flex items-center justify-between w-full p-2 rounded-lg cursor-pointer
-                                text-gray-700 bg-yellow-300 border border-yellow-300
-                                hover:text-gray-800 hover:bg-yellow-400 
-                                peer-checked:bg-yellow-400 peer-checked:border-yellow-500
-                                dark:hover:text-gray-300 dark:border-gray-700 dark:peer-checked:text-blue-500 
-                                dark:text-gray-400 dark:bg-gray-800 dark:hover:bg-gray-700">                           
+                                text-gray-700 hover:text-gray-800 dark:text-slate-100 dark:hover:text-gray-200
+                                bg-yellow-300  hover:bg-yellow-400 dark:bg-yellow-600 dark:hover:bg-yellow-500
+                                border border-yellow-300 dark:border-yellow-600
+                                peer-checked:bg-yellow-400  peer-checked:border-2 peer-checked:border-yellow-800 
+                                dark:peer-checked:bg-yellow-600 dark:peer-checked:border-yellow-300">                            
                                     <div class="flex items-center space-x-2 w-full justify-center">
                                         <i class="fa-solid fa-basketball text-sm"></i>
                                         <p class="text-center text-sm font-medium">Sport</p>
@@ -234,10 +247,11 @@
                             <div>
                                 <input type="radio"  id="fun-ctg" name="category" value="Fun" class=" category hidden peer" required />
                                 <label for="fun-ctg" class="inline-flex items-center justify-between w-full p-2 rounded-lg cursor-pointer
-                                text-gray-700 bg-emerald-300 border border-emerald-300 
-                                hover:text-gray-800 hover:bg-emerald-400 
-                                peer-checked:bg-emerald-400 peer-checked:border-emerald-500
-                                dark:hover:text-gray-300 dark:border-gray-700 dark:peer-checked:text-blue-500  dark:text-gray-400 dark:bg-gray-800 dark:hover:bg-gray-700">                           
+                                text-gray-700 hover:text-gray-800 dark:text-slate-100 dark:hover:text-gray-200
+                                bg-emerald-300  hover:bg-emerald-400 dark:bg-emerald-600 dark:hover:bg-emerald-500
+                                border border-emerald-300 dark:border-emerald-600
+                                peer-checked:bg-emerald-400  peer-checked:border-2 peer-checked:border-emerald-800 
+                                dark:peer-checked:bg-emerald-600 dark:peer-checked:border-emerald-300">               
                                     <div class="flex items-center space-x-2 w-full justify-center">
                                         <i class="fa-solid fa-calendar-days text-sm"></i>
                                         <p class="text-center text-sm font-medium">Fun</p>
@@ -248,10 +262,11 @@
                             <div>
                                 <input type="radio" id="family-ctg" name="category" value="Family" class="category hidden peer" required />
                                 <label for="family-ctg" class="inline-flex items-center justify-between w-full p-2 rounded-lg cursor-pointer
-                                text-gray-700 bg-sky-300 border border-sky-300 
-                                hover:text-gray-800 hover:bg-sky-400 
-                                peer-checked:bg-sky-400 peer-checked:border-sky-500
-                                dark:hover:text-gray-300 dark:border-gray-700 dark:peer-checked:text-blue-500  dark:text-gray-400 dark:bg-gray-800 dark:hover:bg-gray-700">                           
+                                text-gray-700 hover:text-gray-800 dark:text-slate-100 dark:hover:text-gray-200
+                                bg-sky-300  hover:bg-sky-400 dark:bg-sky-600 dark:hover:bg-sky-500
+                                border border-sky-300 dark:border-sky-600
+                                peer-checked:bg-sky-400  peer-checked:border-2 peer-checked:border-sky-800 
+                                dark:peer-checked:bg-sky-600 dark:peer-checked:border-sky-300">      
                                     <div class="flex items-center space-x-2 w-full justify-center">
                                         <i class="fa-solid fa-people-roof text-sm"></i>
                                         <p class="text-center text-sm font-medium">Family</p>
@@ -262,10 +277,11 @@
                             <div>
                                 <input type="radio" id="other-ctg" name="category" value="Other" class="category hidden peer" required />
                                 <label for="other-ctg" class="inline-flex items-center justify-between w-full p-2 rounded-lg cursor-pointer
-                                 text-gray-700 bg-violet-300 border border-violet-300
-                                 hover:text-gray-800 hover:bg-violet-400  
-                                 peer-checked:bg-violet-400 peer-checked:border-violet-500
-                                 dark:hover:text-gray-300 dark:border-gray-700 dark:peer-checked:text-blue-500  dark:text-gray-400 dark:bg-gray-800 dark:hover:bg-gray-700">                           
+                                text-gray-700 hover:text-gray-800 dark:text-slate-100 dark:hover:text-gray-200
+                                bg-violet-300  hover:bg-violet-400 dark:bg-violet-600 dark:hover:bg-violet-500
+                                border border-violet-300 dark:border-violet-600
+                                peer-checked:bg-violet-400  peer-checked:border-2 peer-checked:border-violet-800 
+                                dark:peer-checked:bg-violet-600 dark:peer-checked:border-violet-300">   
                                     <div class="flex items-center space-x-2 w-full justify-center">
                                         <i class="fa-regular fa-note-sticky text-sm"></i>
                                         <p class="text-center text-sm font-medium">Other</p>

@@ -1,21 +1,31 @@
 <!DOCTYPE html>
-<html lang="en">
+<html lang="en" class="overflow-x-hidden">
 
 <head>
-  <meta charset="UTF-8">
-  <meta name="viewport"
-    content="width=device-width, initial-scale=1.0">
-  <title>Tudy App</title>
-  <link rel="stylesheet" href="css/app.css">
-  <!-- jquery cdn -->
-  <script
-    src="https://code.jquery.com/jquery-3.7.1.js"
-    integrity="sha256-eKhayi8LEQwp4NKxN+CfCh+3qOVUtJn3QNZ0TciWLP4="
-    crossorigin="anonymous"></script>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <!-- title page -->
+    <title>Tudy App</title>
+    <!-- stylesheet css -->
+    <link rel="stylesheet" href="css/app.css">
+    <!-- cdn library jquery -->
+    <script src="https://code.jquery.com/jquery-3.7.1.js"
+        integrity="sha256-eKhayi8LEQwp4NKxN+CfCh+3qOVUtJn3QNZ0TciWLP4=" crossorigin="anonymous"></script>
+        <!-- cdn font awesome -->
+    <script src="https://kit.fontawesome.com/c8105c8ce4.js" crossorigin="anonymous"></script>
+        <!-- library flowbite.css-->
+    <link href="https://cdn.jsdelivr.net/npm/flowbite@2.5.1/dist/flowbite.min.css" rel="stylesheet" />
+        <!-- icon tab -->
     <link rel="icon" type="image/x-icon" href="assets/images/todo-logo.png">
+    <!-- darkmode config -->
+    <script>
+        tailwind.config = {
+            darkMode: 'class'
+        }
+    </script>
 </head>
 
-<body class="bg-slate-50 overflow-hidden">
+<body class="bg-slate-100 dark:bg-gray-900 overflow-hidden">
   <main class="h-screen flex items-center justify-center">
     <div class="max-w-56">
       <!-- image-splash -->
