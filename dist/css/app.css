@@ -1685,6 +1685,11 @@ video {
   color: rgb(156 163 175 / var(--tw-text-opacity));
 }
 
+.dark\:text-red-600:is(.dark *) {
+  --tw-text-opacity: 1;
+  color: rgb(220 38 38 / var(--tw-text-opacity));
+}
+
 .dark\:text-sky-700:is(.dark *) {
   --tw-text-opacity: 1;
   color: rgb(3 105 161 / var(--tw-text-opacity));

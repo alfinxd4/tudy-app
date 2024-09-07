@@ -222,8 +222,8 @@ trashIcon.on("click", () => {
   $("#btn-submit-add-task").on("click", () => {
     addTaskWork();
   });
- 
   loadTasksFromStorage(); // running function loadTasksFromStorage every time the website load
+
 
   // Update task counts in each category and match that selector
   updateTaskCount("taskWork", $("#task-work"));

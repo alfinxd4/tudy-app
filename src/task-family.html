@@ -23,27 +23,44 @@
             darkMode: 'class'
         }
     </script>
+       <style>
+        /* Hide scrollbar for Chrome, Safari, and Opera */
+        .no-scrollbar::-webkit-scrollbar {
+            display: none;
+        }
+
+        /* Hide scrollbar for IE, Edge, and Firefox */
+        .no-scrollbar {
+            -ms-overflow-style: none;
+            /* IE and Edge */
+            scrollbar-width: none;
+            /* Firefox */
+        }
+    </style>
 </head>
 
-<body class="bg-slate-100 dark:bg-gray-900  relative overflow-x-hidden">
+<body class="bg-slate-100  dark:bg-gray-900 h-screen overflow-hidden">
     <!-- yellow circle background -->
-    <div class="absolute -top-[16em] left-1/2 -translate-x-1/2 size-[28rem] bg-amber-300 rounded-full -z-10"></div>
+    <div
+        class="fixed -top-64 right-1/2 left-1/2  -translate-x-1/2  size-[28rem] bg-amber-300 dark:bg-sky-700 rounded-full -z-10">
+
+    </div>
     <!-- display current date -->
-    <div class="max-w-80 mx-auto relative">
-        <a href="todo.html" class="absolute top-11 left-10">
-            <i class="fa-solid fa-arrow-left-long text-2xl text-gray-800"></i>
+    <div class="absolute w-full">
+        <a href="todo.html" class="absolute top-11 w-60 left-1/2 -translate-x-1/2">
+            <i class="fa-solid fa-arrow-left-long text-2xl text-gray-800 dark:text-gray-100"></i>
         </a>
         <!--  -->
-        <div class="text-center text-gray-800 pt-10 font-bold">
+        <div class="text-center my-auto text-gray-800 dark:text-gray-100 pt-10 font-bold">
             <p id="current-month" class="text-2xl"></p>
             <p id="current-date" class="text-xl"></p>
             <p id="current-day" class="text-lg"></p>
         </div>
     </div>
     <!-- main content -->
-    <main class="max-w-80 mx-auto pt-8 pb-20 relative top-14">
+    <main class="w-80 mx-auto absolute right-1/2 left-1/2   -translate-x-1/2  top-52 ">
         <!--  -->
-        <div class="flex items-center justify-between">
+        <div class="flex items-center justify-between dark:text-gray-100">
             <div class="flex items-center space-x-5">
                 <!-- icon-task -->
                 <div>
@@ -58,7 +75,7 @@
         </div>
  
             <!-- container task list -->
-            <div class="my-12" id="task-list-family">
+            <div class="mt-12 px-1 overflow-y-auto  max-h-[19rem] no-scrollbar" id="task-list-family">
                
             </div>
     </main>
@@ -226,8 +243,8 @@
         </div>
     </div>
 
-        <!-- delete modal -->
-        <div tabindex="-1"
+    <!-- delete modal -->
+    <div tabindex="-1"
         class="delete-modal hidden overflow-y-auto overflow-x-hidden fixed top-0 right-0 left-0 z-50 justify-center items-center w-full md:inset-0 h-[calc(100%-1rem)] max-h-full" aria-hidden="true">
         <div class="relative p-4 w-full max-w-md max-h-full">
             <div class="relative p-4 w-full max-w-md max-h-full">
@@ -242,12 +259,12 @@
                         <span class="sr-only">Close modal</span>
                     </button>
                     <div class="p-4 md:p-5 text-center">
-                        <svg class="mx-auto mb-4 text-red-600 w-12 h-12 dark:text-gray-200" aria-hidden="true"
+                        <svg class="mx-auto mb-4 text-red-600 w-12 h-12 dark:text-red-600" aria-hidden="true"
                             xmlns="http://www.w3.org/2000/svg" fill="none" viewBox="0 0 20 20">
                             <path stroke="currentColor" stroke-linecap="round" stroke-linejoin="round" stroke-width="2"
                                 d="M10 11V6m0 8h.01M19 10a9 9 0 1 1-18 0 9 9 0 0 1 18 0Z" />
                         </svg>
-                        <h3 class="my-7 font-normal text-gray-500 dark:text-gray-400">Are you sure you want to
+                        <h3 class="my-7 font-normal text-gray-500 dark:text-gray-100">Are you sure want to
                             delete this task ?</h3>
                         <button type="button" id="btn-confirm-delete"
                             class=" data-modal-hide block w-full text-white  bg-red-600 hover:bg-red-800 focus:ring-4 focus:outline-none focus:ring-red-300 dark:focus:ring-red-800 font-medium rounded-lg text-smd px-5 py-2.5 text-center">
@@ -257,8 +274,6 @@
                 </div>
             </div>
         </div>
-
-
     </div>
 
     <!-- library flowbite.js -->
