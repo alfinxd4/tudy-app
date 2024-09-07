@@ -246,4 +246,55 @@ trashIcon.on("click", () => {
     updateTaskCount(`task${taskCategory}`, $(`#task-${taskCategory.toLowerCase()}`));
     updateTotalTaskCount();
   };
+
+
+ 
+
+  // theme var
+const userTheme = localStorage.getItem("theme");
+
+// dark mode
+const darkMode = () => {
+  document.documentElement.classList.add("dark");
+  localStorage.setItem("theme", "dark");
+}
+
+// light mode
+const lightMode = () => {
+  if (document.documentElement.classList.contains("dark")) {
+      document.documentElement.classList.remove("dark");
+      localStorage.setItem("theme", "light");
+    }
+}
+
+//check initial theme
+const checkTheme = () => {
+  if (userTheme != null) {
+    //dark mode
+    if (userTheme == "dark" || switchTheme == "dark") {
+        darkMode();
+    } else {
+    //   light mode
+      lightMode();
+    }
+  }
+};
+
+// switch theme
+const switchTheme = () => {
+  // dark - light
+  if (document.documentElement.classList.contains("dark")) {
+   lightMode();
+  }
+  // light - dark
+  else {
+    darkMode();
+  }
+};
+
+$("#btn-switch").on("click", () => {
+  switchTheme();
+});
+
+checkTheme();
 });
