@@ -247,9 +247,6 @@ trashIcon.on("click", () => {
     updateTotalTaskCount();
   };
 
-
- 
-
   // theme var
 const userTheme = localStorage.getItem("theme");
 
@@ -292,9 +289,17 @@ const switchTheme = () => {
   }
 };
 
+// switch theme
 $("#btn-switch").on("click", () => {
   switchTheme();
 });
 
 checkTheme();
+
+// update username
+$("#btn-submit-update-username").on("click", () => {
+  localStorage.setItem("user",  $("#input-new-username").val().trim());
+});
+
+
 });
