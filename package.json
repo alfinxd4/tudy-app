@@ -4,16 +4,12 @@
   "main": "src/js/app.js",
   "scripts": {
     "test": "echo \"Error: no test specified\" && exit 1",
-
     "build:tailwind": "npx tailwindcss -i ./src/css/main.css -o ./dist/css/app.css",
     "dev:tailwind": "npx tailwindcss -i ./src/css/main.css -o ./dist/css/app.css --watch",
- 
     "dev:webpack": "webpack --mode development --watch",
     "build:webpack": "webpack --mode production",
- 
-    "dev" : "npm-run-all --parallel dev:webpack dev:tailwind",
-    "prod" : "npm-run-all --parallel build:webpack build:tailwind",
-   
+    "dev": "npm-run-all --parallel dev:webpack dev:tailwind",
+    "prod": "npm-run-all --parallel build:webpack build:tailwind",
     "deploy": "gh-pages -d dist"
   },
   "repository": {
@@ -33,7 +29,9 @@
     "gh-pages": "^6.1.1",
     "glob": "^11.0.0",
     "html-webpack-plugin": "^5.6.0",
+    "mini-css-extract-plugin": "^2.9.1",
     "npm-run-all": "^4.1.5",
+    "null-loader": "^4.0.1",
     "postcss": "^8.4.41",
     "postcss-loader": "^8.1.1",
     "style-loader": "^4.0.0",
